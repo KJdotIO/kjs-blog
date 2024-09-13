@@ -1,5 +1,5 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
-const API_KEY = process.env.NEXT_PUBLIC_API_TOKEN;
+const API_KEY = process.env.API_TOKEN;
 
 export async function fetchData(endpoint: string) {
   const url = `${API_URL}${endpoint}`;
