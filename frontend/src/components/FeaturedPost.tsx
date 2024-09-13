@@ -53,7 +53,7 @@ function FeaturedPost({ articles }: FeaturedPostProps) {
                   <Skeleton count={2} />
                 )}
               </p>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center flex-wrap gap-3">
                 {articles[0].attributes.tags.data.length ? (
                   articles[0].attributes.tags.data.map((tag) => (
                     <div
