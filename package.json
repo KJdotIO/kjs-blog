@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "dayjs": "^1.11.13",
-    "react-loading-skeleton": "^3.4.0"
-  }
-}
