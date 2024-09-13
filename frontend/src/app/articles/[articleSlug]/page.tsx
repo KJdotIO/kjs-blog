@@ -33,7 +33,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     <div className="main-gutter flex flex-col items-center">
       <>
         <section className="flex flex-col items-center gap-4">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl text-center mt-10">
+          <h1 className="text-3xl sm:text-4xl text-wrap md:text-6xl lg:text-7xl text-center mt-10">
             {article.attributes.title}
           </h1>
           <div className="flex gap-4 flex-col items-center">
@@ -41,7 +41,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <p>{article.attributes.author}</p> | <p>{formateddate}</p>{" "}
               {/*| <p>12 min</p>*/}
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap justify-center">
               {article.attributes.tags.data.map((tag) => (
                 <div
                   key={tag.id}
