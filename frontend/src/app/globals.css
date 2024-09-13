@@ -66,5 +66,5 @@ code {
   @apply transition-all ease-in-out duration-200;
 }
 .main-gutter {
-  @apply px-[30px] md:px-[40px] lg:px-[70px] xl:px-[200px] eased-transition;
+  @apply px-[25px] md:px-[40px] lg:px-[70px] xl:px-[200px] eased-transition;
 }

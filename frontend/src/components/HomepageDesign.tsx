@@ -16,7 +16,7 @@ function HomepageDesign() {
         </div>
         <div className="relative z-10 h-full flex flex-col justify-center p-4 sm:p-8">
           <p className="text-xs uppercase tracking-widest mb-2">A Journal</p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-none mb-2">
+          <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-none mb-2">
             Insight
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl italic font-thin">
