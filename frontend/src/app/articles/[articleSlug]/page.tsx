@@ -53,8 +53,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </div>
             <div className="my-8">
               <Image
-                src={`${process.env.NEXT_PUBLIC_MEDIA_URL}${article.attributes.thumbnail.data.attributes.url}`}
-                width={800}
+                src={`${article.attributes.thumbnail.data.attributes.url}`}
+                width={900}
                 height={100}
                 alt=""
                 className=""

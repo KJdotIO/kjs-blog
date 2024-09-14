@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "kjs-blog-backend-851c8f97ab2c.herokuapp.com",
+        hostname: "res.cloudinary.com",
         pathname: "/**",
       },
     ],

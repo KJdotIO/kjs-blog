@@ -26,7 +26,7 @@ function FeaturedPost({ articles }: FeaturedPostProps) {
           <>
             {articles[0].attributes.thumbnail?.data ? (
               <Image
-                src={`${process.env.NEXT_PUBLIC_MEDIA_URL}${articles[0].attributes.thumbnail.data.attributes.url}`}
+                src={`${articles[0].attributes.thumbnail.data.attributes.url}`}
                 alt="Featured Post Image"
                 layout="fill"
                 objectFit="cover"
