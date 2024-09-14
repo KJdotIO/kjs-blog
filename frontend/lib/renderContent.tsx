@@ -10,6 +10,12 @@ type TextData = {
   children?: TextData[];
   level?: number;
   format?: string;
+  image?: {
+    name: string;
+    alternativeText?: string;
+    caption?: string;
+    url: string;
+  };
 };
 
 export function renderContent(content: TextData[]): React.ReactNode[] {
@@ -32,7 +38,7 @@ export function renderContent(content: TextData[]): React.ReactNode[] {
         const listClass =
           item.format === "ordered" ? "list-decimal" : "list-disc";
         return (
-          <ListTag key={index} className={`pl-5 ${listClass}`}>
+          <ListTag key={index} className={`pl-8 ${listClass}`}>
             {item.children &&
               item.children.map((child, childIndex) => (
                 <li key={childIndex}>{renderText(child.children || [])}</li>
@@ -41,12 +47,27 @@ export function renderContent(content: TextData[]): React.ReactNode[] {
         );
       case "quote":
         return (
-          <blockquote key={index}>
+          <blockquote className="border-l-[4px] border-l-gray-500 dark:border-white pl-4 italic text-gray-500 dark:text-gray-300" key={index}>
             <p>{item.children && renderText(item.children)}</p>
           </blockquote>
         );
       case "code":
-        return <pre key={index}>{item.children && item.children[0].text}</pre>;
+        return <pre key={index} className="overflow-x-auto whitespace-pre bg-gray-200 dark:bg-[#232323] p-4 rounded text-sm ">{item.children && item.children[0].text}</pre>;
+      case "image":
+        return (
+          <figure key={index} className="flex flex-col items-center">
+            <img
+              src={item.image?.url || ""}
+              alt={item.image?.alternativeText || ""}
+              className="w-[90%] sm:w-[80%]"
+            />
+            {item.image?.caption && (
+              <figcaption className="text-center text-xs sm:text-sm mt-2 dark:text-gray-500 text-gray-500">
+                {item.image.caption}
+              </figcaption>
+            )}
+          </figure>
+        );
       default:
         return null;
     }
@@ -83,6 +104,7 @@ function renderText(children: TextData[]): React.ReactNode[] {
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
+            className="text-blue-500 dark:text-blue-400 hover:underline"
           >
             {item.children && renderText(item.children)}
           </a>

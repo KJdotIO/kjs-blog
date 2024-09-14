@@ -33,30 +33,9 @@ span {
   @apply font-sans;
 }
 
-ul {
-  @apply list-disc pl-8;
-}
-ol {
-  @apply list-decimal pl-8;
-}
-
-blockquote {
-  @apply border-l-[4px] border-l-gray-500 dark:border-white pl-4 italic text-gray-500 dark:text-gray-300;
-}
-
-a {
-  @apply text-blue-600;
-}
-
-pre {
-  @apply bg-gray-200 dark:bg-[#232323] p-4 rounded text-sm break-words;
-  @apply overflow-x-auto whitespace-pre-wrap;
-}
 
 code {
   @apply bg-gray-200 dark:bg-[#232323] text-red-400 p-1 rounded text-sm break-words;
-  @apply overflow-auto;
-  @apply max-w-full;
 }
 
 .light-bg {
