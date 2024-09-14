@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import Header from "../components/Header";
 import { DM_Serif_Display, Inter } from "next/font/google";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const dmSerif = DM_Serif_Display({
@@ -28,6 +29,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light">
           <Header />
           {children}
+          <Analytics />
           <Footer />
         </ThemeProvider>
       </body>
