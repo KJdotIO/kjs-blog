@@ -5,7 +5,7 @@ import Image from "next/image";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import { renderContent } from "../../../../lib/renderContent";
-import Head from 'next/head';
+import { Metadata } from "next";
 dayjs.extend(advancedFormat);
 
 type ArticlePageProps = {
@@ -13,6 +13,46 @@ type ArticlePageProps = {
     articleSlug: string;
   };
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { articleSlug: string };
+}): Promise<Metadata> {
+  const { articleSlug } = params;
+
+  const result = await fetchData(
+    `/articles?filters[slug][$eq]=${articleSlug}&populate=*`
+  );
+
+  const article = result.data[0]?.attributes;
+
+  if (!article) {
+    return {
+      title: "Article not found",
+      description: "This article could not be found.",
+    };
+  }
+
+  return {
+    title: article.title,
+    description: article.description,
+    openGraph: {
+      title: article.title,
+      description: article.description,
+      url: `https://www.utopianinsight.live/articles/${articleSlug}`,
+      images: [
+        {
+          url: article.thumbnail.data.attributes.url,
+          width: 800,
+          height: 600,
+          alt: article.title,
+        },
+      ],
+      type: "article",
+    },
+  };
+}
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { articleSlug } = params;
@@ -32,15 +72,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <div className="main-gutter flex flex-col items-center">
-      <Head>
-        <title>{article.attributes.title}</title>
-        <meta name="description" content={article.attributes.description} />
-        <meta property="og:title" content={article.attributes.title} />
-        <meta property="og:description" content={article.attributes.description} />
-        <meta property="og:image" content={article.attributes.thumbnail.data.attributes.url} />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://www.utopianinsight.live/articles/${article.attributes.slug}`} />
-      </Head>
+
       <section className="flex flex-col items-center gap-4">
         <h1 className="text-3xl sm:text-4xl text-wrap md:text-6xl lg:text-7xl text-center mt-10">
           {article.attributes.title}
