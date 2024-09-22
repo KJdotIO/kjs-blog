@@ -4,6 +4,8 @@ export type Article = {
     title: string;
     author: string;
     published: string;
+    description: string;
+    updatedAt?: string;
     slug: string;
     thumbnail: {
       data: {
