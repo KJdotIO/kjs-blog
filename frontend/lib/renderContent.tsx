@@ -28,7 +28,7 @@ export function renderContent(content: TextData[]): React.ReactNode[] {
         return (
           <HeadingTag
             key={index}
-            className={`font-serif ${getHeadingClass(item.level)}`}
+            className={`font-serif mt-10 ${getHeadingClass(item.level)}`}
           >
             {item.children && renderText(item.children)}
           </HeadingTag>
