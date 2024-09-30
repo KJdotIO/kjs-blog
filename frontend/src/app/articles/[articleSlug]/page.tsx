@@ -80,7 +80,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </h1>
         <div className="flex gap-4 flex-col items-center">
           <div className="flex gap-2">
-            <p>{article.attributes.author}</p> | <p>{formateddate}</p>{" "} | <ReaderSettings/>
+            <p>{article.attributes.author}</p> | <p>{formateddate}</p>{" "}
           </div>
           <div className="flex gap-2 flex-wrap justify-center">
             {article.attributes.tags.data.map((tag) => (
