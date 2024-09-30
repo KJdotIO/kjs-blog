@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import { renderContent } from "../../../../lib/renderContent";
 import { Metadata } from "next";
-import ReaderSettings from "@/components/ReaderSettings";
+// import ReaderSettings from "@/components/ReaderSettings";
 dayjs.extend(advancedFormat);
 
 type ArticlePageProps = {
