@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import { renderContent } from "../../../../lib/renderContent";
 import { Metadata } from "next";
+import ReaderSettings from "@/components/ReaderSettings";
 dayjs.extend(advancedFormat);
 
 type ArticlePageProps = {
@@ -79,7 +80,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </h1>
         <div className="flex gap-4 flex-col items-center">
           <div className="flex gap-2">
-            <p>{article.attributes.author}</p> | <p>{formateddate}</p>{" "}
+            <p>{article.attributes.author}</p> | <p>{formateddate}</p>{" "} | <ReaderSettings/>
           </div>
           <div className="flex gap-2 flex-wrap justify-center">
             {article.attributes.tags.data.map((tag) => (
